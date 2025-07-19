@@ -19,12 +19,12 @@ def main():
     
     try:
         logger.info(f"Making GET request to configured URL")
-        response = requests.get(cron_url, timeout=10)
+        response = requests.get(cron_url, timeout=300)
         response.raise_for_status()
         logger.info(f"Request successful - Status code: {response.status_code}")
         
     except requests.Timeout:
-        logger.error("Request timed out after 10 seconds")
+        logger.error("Request timed out after 300 seconds")
     except requests.RequestException as e:
         logger.error(f"Request failed: {str(e)}")
 
